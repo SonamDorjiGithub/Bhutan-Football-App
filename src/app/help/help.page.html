@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons>
+        <ion-button (click)="openMenu()" style="color:white;"><ion-icon name="menu"></ion-icon></ion-button>
+      <ion-back-button style="color:white;"></ion-back-button>
+      <img src="assets/img/bff.png" height="10%" width="10%">
+      <ion-title style="color:white;">Manual</ion-title>
+    </ion-buttons>
+</ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-content style="font-family: 'Times New Roman', Times, serif;font-size: 12pt;">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            This module is mainly to let users know the availability of ground. In order to do that, ground owner/caretaker need to update through this app. 
+            It will help in keeping the ground fully engaged and also it will help in getting disturbing call from users to the ground owner if the ground is already booked. 
+            However, it will <strong>NOT maintain the monthly record</strong> of the match played in the ground. 
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <b>Manual</b>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            By default or if the ground has been not booked for the particular day, set all button to available as below
+            <br><ion-toggle value="true" color="secondary"></ion-toggle>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>  
+</ion-content>

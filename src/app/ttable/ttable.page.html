@@ -1,0 +1,110 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons>
+      <ion-button slot="left" (click)="openMenu()"><ion-icon name="menu"></ion-icon></ion-button>
+      <ion-button (click)="goBack()"><ion-icon name="arrow-back"></ion-icon></ion-button>
+      <img src="assets/img/bff.png" height="10%" width="10%">
+      <ion-title>Table/Standings</ion-title>  
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+<ion-grid>
+  <ion-row>
+    <ion-col size="12" style="text-align: center;">
+        <ion-label><b>{{tname}}</b></ion-label>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<ion-grid style="font-size: 9pt; background-color:black; color:white;">
+    <ion-row>
+        <ion-col size="4">
+          <ion-label>Team</ion-label>
+        </ion-col>
+        <ion-col size="1">
+           <ion-label>P</ion-label>
+        </ion-col>
+        <ion-col size="1">
+            <ion-label>W</ion-label>
+         </ion-col>
+         <ion-col size="1">
+            <ion-label>L</ion-label>
+         </ion-col>
+         <ion-col size="1">
+            <ion-label>D</ion-label>
+         </ion-col>
+         <ion-col size="2">
+            <ion-label>GD</ion-label>
+         </ion-col>
+         <ion-col size="2">
+            <ion-label>PTS</ion-label>
+         </ion-col>
+      </ion-row>
+</ion-grid>
+<ion-grid *ngFor="let data of teams, let i=index" style="font-size: 8pt; background-color:rgb(221, 216, 216);">
+    <ion-row>
+        <ion-col size="4" style="font-size:6pt;">
+          <ion-label button="true">{{i+1}}.&nbsp;&nbsp;<img src="{{data.url}}" height="80%" width="10%">&nbsp;&nbsp;{{data.teamname}}</ion-label>
+        </ion-col>
+        <ion-col size="1">
+           <ion-label>{{data.p}}</ion-label>
+        </ion-col>
+        <ion-col size="1">
+            <ion-label>{{data.w}}</ion-label>
+         </ion-col>
+         <ion-col size="1">
+            <ion-label>{{data.l}}</ion-label>
+         </ion-col>
+         <ion-col size="1">
+            <ion-label>{{data.d}}</ion-label>
+         </ion-col>
+         <ion-col size="2">
+            <ion-label>{{data.gd}}</ion-label>
+         </ion-col>
+         <ion-col size="2">
+            <ion-label>{{data.pts}}</ion-label>
+         </ion-col>
+      </ion-row>
+   </ion-grid>
+   <ion-grid *ngIf="showImage">
+      <ion-row>
+         <ion-col style="width: 100%; text-align: center;font-size: 12pt;color: rgb(65, 125, 192);font-family: 'Times New Roman', Times, serif;">
+            <i><b>Event Sponsor:</b></i>
+         </ion-col>
+      </ion-row>
+      <ion-row>
+         <ion-col *ngIf="sponlogo1!='null'" size="4" button="true" (click)="openSponsor(sponurl1)" style="text-align: center;">
+            <img src="{{sponlogo1}}" height="80%" width="60%">
+         </ion-col>
+         <ion-col *ngIf="sponlogo2!='null'" size="4" button="true" (click)="openSponsor(sponurl2)" style="text-align: center;"> 
+            <img src="{{sponlogo2}}" height="80%" width="60%">          
+         </ion-col>
+         <ion-col *ngIf="sponlogo3!='null'" size="4" button="true" (click)="openSponsor(sponurl3)" style="text-align: center;"> 
+            <img src="{{sponlogo3}}" height="80%" width="60%">          
+         </ion-col>
+      </ion-row>
+      <ion-row>
+         <ion-col *ngIf="sponlogo4!='null'" size="4" button="true" (click)="openSponsor(sponurl4)" style="text-align: center;">
+            <img src="{{sponlogo4}}" height="80%" width="60%">
+         </ion-col>
+         <ion-col *ngIf="sponlogo5!='null'" size="4" button="true" (click)="openSponsor(sponurl5)" style="text-align: center;"> 
+            <img src="{{sponlogo5}}" height="80%" width="60%">          
+         </ion-col>
+         <ion-col *ngIf="sponlogo6!='null'" size="4" button="true" (click)="openSponsor(sponurl6)" style="text-align: center;"> 
+            <img src="{{sponlogo6}}" height="80%" width="60%">          
+         </ion-col>
+      </ion-row>
+      <ion-row>
+         <ion-col *ngIf="sponlogo7!='null'" size="4" button="true" (click)="openSponsor(sponurl7)" style="text-align: center;">
+            <img src="{{sponlogo7}}" height="80%" width="60%">
+         </ion-col>
+         <ion-col *ngIf="sponlogo8!='null'" size="4" button="true" (click)="openSponsor(sponurl8)" style="text-align: center;"> 
+            <img src="{{sponlogo8}}" height="80%" width="60%">          
+         </ion-col>
+         <ion-col *ngIf="sponlogo9!='null'" size="4" button="true" (click)="openSponsor(sponurl9)" style="text-align: center;"> 
+            <img src="{{sponlogo9}}" height="80%" width="60%">          
+         </ion-col>
+      </ion-row>   
+   </ion-grid>
+</ion-content>

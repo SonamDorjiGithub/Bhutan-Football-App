@@ -1,0 +1,7 @@
+{
+  "name": "ThimphuEvents",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons>
+      <ion-button (click)="openMenu()" style="color:white;"><ion-icon name="menu"></ion-icon></ion-button>
+      <img src="assets/img/bff.png" height="10%" width="10%">
+      <ion-title style="color:white;">Bhutan Football</ion-title>
+    </ion-buttons>
+</ion-toolbar>
+</ion-header>
+
+<ion-content padding class="home">
+  <br><br>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" (click)="goGroundStat()">
+        <ion-card style="text-align:center;">
+            <!-- <ion-icon name="football" style="font-size:80pt;"></ion-icon> -->
+            <img src="assets/img/groundstat.png" height="100%" width="110%">           
+            <ion-card-content>
+              <!-- <b>Ground Status</b> -->
+              <span style="color:black;font-family: 'Arial', Helvetica, sans-serif;">Ground Status</span>
+            </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" (click)="goMatches()">
+        <ion-card style="text-align:center;">
+            <!-- <ion-icon name="football" style="font-size:80pt"></ion-icon> -->
+              <img src="assets/img/bob.jpg" height="100%" width="110%">
+            <ion-card-content>
+                <!-- <b>Matches</b> -->
+              <span style="color:black;font-family: 'Arial', Helvetica, sans-serif;">Matches</span>
+              </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6" (click)="goTable()">
+        <ion-card style="text-align:center;">
+            <!-- <ion-icon name="football" style="font-size:80pt"></ion-icon> -->
+            <img src="assets/img/table.png" height="100%" width="110%">                        
+            <ion-card-content>
+                <!-- <b>Point Table</b> -->
+              <span style="color:black;font-family: 'Arial', Helvetica, sans-serif;">Point Table</span>
+              </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" (click)="goEvents()">
+        <ion-card style="text-align:center;">
+            <!-- <ion-icon name="football" style="font-size:98pt"></ion-icon> -->
+            <img src="assets/img/events.png" height="100%" width="110%">            
+            <ion-card-content>
+                <!-- <b>Upcoming Events</b> -->
+              <span style="color:black;font-family: 'Arial', Helvetica, sans-serif;">Upcoming Events</span>
+              </ion-card-content>
+        </ion-card>  
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

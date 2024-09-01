@@ -1,0 +1,98 @@
+<ion-header>
+    <ion-toolbar color="secondary">
+        <ion-buttons>
+        <ion-button (click)="openMenu()" style="color:white;"><ion-icon name="menu"></ion-icon></ion-button>
+        <ion-back-button style="color:white;"></ion-back-button>
+        <img src="assets/img/bff.png" height="10%" width="10%">
+        <ion-title id="title" style="color:white">About us</ion-title>
+        </ion-buttons>
+      </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-text color="dark" style="font-family: 'Times New Roman', Times, serif;">
+              <b>Vision</b>
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text style="font-family: 'Times New Roman', Times, serif;">
+                To deliver high quality informations and related services that will enhance the well being of the
+                Bhutanese people.
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text color="dark" style="font-family: 'Times New Roman', Times, serif;">
+                <b>Mission</b>
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text style="font-family: 'Times New Roman', Times, serif;">
+              To be a number one chosen areas of information and related sevices.
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        </ion-grid>
+        <ion-list>
+            <ion-item class="about-special" button="true" (click)="aboutApp()">
+              <p>About this app</p>
+            </ion-item>
+            <div *ngIf="showaboutapp"> 
+            <ion-item style="color: black; background:#eeeeee;border-radius: 5px;font-family: 'Times New Roman', Times, serif;" slot="fixed">
+                Want to know what's happening in and around you? Experience convenience at your fingertips as ThimphuEvent Mobile App brings this information to your smartphone both android and IOS.
+                We are more than just a information provider. Discover our full network and range of services via our app!
+              </ion-item>
+              
+              <ion-item style="color: black; background:#eeeeee;border-radius: 5px;font-family: 'Times New Roman', Times, serif;" slot="fixed">
+                  
+                <ul>
+                    <span style="color: teal;">
+                        <b>This app would be great for:</b>
+                    </span>
+                    <li>Knowing various events in Thimphu region</li>
+                    <li>knowing the status of football ground booking</li>
+                    <li>knowing the cityBus schedule and timing</li>
+                    <li>platform for buying the second hand stuffs</li>
+                    <li>tracking the cityBus and Garbage Truck</li>
+                  </ul>
+                </ion-item>
+              </div>
+            <ion-item class="about-special" button="true" (click)="postDeveloper()">
+              <p>Developers</p>
+            </ion-item>
+            <div *ngIf="showdeveloper">
+            <ion-item style="color: black; background:#eeeeee;border-radius: 5px;font-family: 'Times New Roman', Times, serif;" slot="fixed">
+              Kinley Dorji<br>
+              College of Science and Technology<br> 
+              kd77144@gmail.com<br>
+              17981803
+            </ion-item>
+            <ion-item style="color: black; background:#eeeeee;border-radius: 5px;font-family: 'Times New Roman', Times, serif;" slot="fixed">
+              Sonam Dorji<br>
+              College of Science and Technology<br> 
+              sonamfechurdorji@gmail.com<br>
+              17285733
+            </ion-item>
+            <ion-item style="color: black; background:#eeeeee;border-radius: 5px;font-family: 'Times New Roman', Times, serif;" slot="fixed">
+              Tashi Wangchuk<br>
+              College of Science and Technology<br> 
+              tashioongchuk@gmail.com<br>
+              17714389
+            </ion-item>
+            <ion-item style="color: black; background:#eeeeee;border-radius: 5px;font-family: 'Times New Roman', Times, serif;" slot="fixed">
+                Ugyen Thinley<br>
+                College of Science and Technology<br> 
+                shingdema@gmail.com<br>
+                17714389
+              </ion-item>
+          </div>
+        </ion-list>
+</ion-content>

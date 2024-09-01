@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons>
+      <ion-button (click)="openMenu()" style="color:white;"><ion-icon name="menu"></ion-icon></ion-button>
+      <img src="assets/img/bff.png" height="10%" width="10%">
+      <ion-title style="color:white;">BFF Admin</ion-title>
+    </ion-buttons>
+</ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" style="text-align:center;">
+        <img src="assets/img/bff.png">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!-- <br><br><br><br>
+  <ion-button expand="full" color="primary" (click)="viewStatus()">View</ion-button>
+    <div>
+      <br><ion-button expand="full" color="primary" (click)="goAdminFullGround()">Football Full Ground</ion-button><br>
+      <ion-button expand="full" color="primary" (click)="goAdminFutsal()">Futsal Ground</ion-button>
+    </div>
+    <div>
+        <ion-button expand="full" color="primary" (click)="gomatch()">Football match</ion-button>
+    </div> -->
+    <br>
+          <ion-button (click)="viewGround()" expand="full" style="--background: transparent; background-color:rgba(0, 0, 0, 0.2); width: 100%; text-align: center;color:black; border:2px solid yellow;">View</ion-button><br>
+          <ion-button (click)="goAdminFullGround()" expand="full" style="--background: transparent; background-color:rgba(0, 0, 0, 0.2); width: 100%; text-align: center;  color:black; border:2px solid yellow;">Update Football Full Ground</ion-button><br>
+          <ion-button (click)="goAdminFutsal()" expand="full" style="--background: transparent; background-color:rgba(0, 0, 0, 0.2); width: 100%; text-align: center; color:black; border:2px solid yellow;">Update Futsal Ground</ion-button><br>
+          <ion-button (click)="goManTourn()"  expand="full" style="--background: transparent; background-color:rgba(0, 0, 0, 0.2); width: 100%; text-align: center; color:black; border:2px solid yellow;">Manage Tournaments</ion-button><br>        
+</ion-content>

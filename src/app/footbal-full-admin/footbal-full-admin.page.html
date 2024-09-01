@@ -1,0 +1,342 @@
+<ion-header>
+    <ion-toolbar color="secondary">
+      <ion-buttons>
+          <ion-button (click)="openMenu()" style="color:white;"><ion-icon name="menu"></ion-icon></ion-button>
+        <ion-back-button style="color:rgb(255, 255, 255);"></ion-back-button>
+        <img src="assets/img/bff.png" height="10%" width="10%">
+        <ion-title style="color:white;">Football Full Admin</ion-title>
+      </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- <br><ion-button expand="full" color="success" (click)="goDay('/monday')">Monday</ion-button> -->
+  <br><ion-item button="true" (click)="goDay('/monday')">
+    <div style="width: 55%; text-align: center;" [(ngClass)]="monColor">Monday</div>  
+    <ion-datetime *ngIf="monDate" [disabled]="true" displayFormat="MMM DD YYYY" [(ngModel)]="date"></ion-datetime>       
+  </ion-item>    
+  <div *ngIf="day=='/monday'">
+        <ion-list>
+          <ion-item>
+            <ion-label><strong>Turn Off For Whole Day:</strong> </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="mon_all" (ionFocus)="presentAlertConfirm()"></ion-toggle>
+          </ion-item>
+        </ion-list>
+
+        <ion-list>
+          <ion-item>
+            <ion-label>8:00 am - 10:00 am : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="mon_8to10am" (ionChange)="changeStatus('time_8to10am_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>10:00 am - 12:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="mon_10to12am" (ionChange)="changeStatus('time_10to12am_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>12:00 pm - 2:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="mon_12to2pm" (ionChange)="changeStatus('time_12to2pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>2:00 pm - 4:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="mon_2to4pm" (ionChange)="changeStatus('time_2to4pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>4:00 pm - 6:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="mon_4to6pm" (ionChange)="changeStatus('time_4to6pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>6:00 pm - 8:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="mon_6to8pm" (ionChange)="changeStatus('time_6to8pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>8:00 pm - 10:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="mon_8to10pm" (ionChange)="changeStatus('time_8to10pm_arg',day)"></ion-toggle>
+          </ion-item>
+        </ion-list>
+    </div>
+  <!-- <ion-button expand="full" color="success" (click)="goDay('/tuesday')">Tuesday</ion-button> -->
+  <ion-item button="true" (click)="goDay('/tuesday')">
+    <div style="width: 55%; text-align: center;" [(ngClass)]="tueColor">Tuesday</div>  
+    <ion-datetime *ngIf="tueDate" [disabled]="true" displayFormat="MMM DD YYYY" [(ngModel)]="date"></ion-datetime>           
+  </ion-item>    
+  <div *ngIf="day=='/tuesday'">
+        <ion-list>
+          <ion-item>
+            <ion-label><strong>Turn Off For Whole Day:</strong> </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="tues_all" (ionFocus)="presentAlertConfirm()"></ion-toggle>
+          </ion-item>
+        </ion-list>
+
+        <ion-list>
+          <ion-item>
+            <ion-label>8:00 am - 10:00 am : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="tues_8to10am" (ionChange)="changeStatus('time_8to10am_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>10:00 am - 12:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="tues_10to12am" (ionChange)="changeStatus('time_10to12am_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>12:00 pm - 2:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="tues_12to2pm" (ionChange)="changeStatus('time_12to2pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>2:00 pm - 4:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="tues_2to4pm" (ionChange)="changeStatus('time_2to4pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>4:00 pm - 6:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="tues_4to6pm" (ionChange)="changeStatus('time_4to6pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>6:00 pm - 8:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="tues_6to8pm" (ionChange)="changeStatus('time_6to8pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>8:00 pm - 10:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="tues_8to10pm" (ionChange)="changeStatus('time_8to10pm_arg',day)"></ion-toggle>
+          </ion-item>
+        </ion-list>
+        </div>
+  
+  <!-- <ion-button expand="full" color="success" (click)="goDay('/wednesday')">Wednesday</ion-button> -->
+  <ion-item button="true" (click)="goDay('/wednesday')">
+    <div style="width: 55%; text-align: center;" [(ngClass)]="wedColor">Wednesday</div>  
+    <ion-datetime *ngIf="wedDate" [disabled]="true" displayFormat="MMM DD YYYY" [(ngModel)]="date"></ion-datetime>           
+  </ion-item>        
+  <div *ngIf="day=='/wednesday'">
+        <ion-list>
+          <ion-item>
+            <ion-label><strong>Turn Off For Whole Day:</strong> </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="wed_all" (ionFocus)="presentAlertConfirm()"></ion-toggle>
+          </ion-item>
+        </ion-list>
+
+        <ion-list>
+          <ion-item>
+            <ion-label>8:00 am - 10:00 am : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="wed_8to10am" (ionChange)="changeStatus('time_8to10am_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>10:00 am - 12:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="wed_10to12am" (ionChange)="changeStatus('time_10to12am_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>12:00 pm - 2:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="wed_12to2pm" (ionChange)="changeStatus('time_12to2pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>2:00 pm - 4:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="wed_2to4pm" (ionChange)="changeStatus('time_2to4pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>4:00 pm - 6:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="wed_4to6pm" (ionChange)="changeStatus('time_4to6pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>6:00 pm - 8:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="wed_6to8pm" (ionChange)="changeStatus('time_6to8pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>8:00 pm - 10:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="wed_8to10pm" (ionChange)="changeStatus('time_8to10pm_arg',day)"></ion-toggle>
+          </ion-item>
+        </ion-list>
+      </div>
+  
+  <!-- <ion-button expand="full" color="success" (click)="goDay('/thursday')">Thursday</ion-button> -->
+  <ion-item button="true" (click)="goDay('/thursday')">
+    <div style="width: 55%; text-align: center;" [(ngClass)]="thuColor">Thursday</div>  
+    <ion-datetime *ngIf="thuDate" [disabled]="true" displayFormat="MMM DD YYYY" [(ngModel)]="date"></ion-datetime>         
+  </ion-item>         
+    <div *ngIf="day=='/thursday'">
+        <ion-list>
+          <ion-item>
+            <ion-label><strong>Turn Off For Whole Day:</strong> </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="thu_all" (ionFocus)="presentAlertConfirm()"></ion-toggle>
+          </ion-item>
+        </ion-list>
+
+        <ion-list>
+          <ion-item>
+            <ion-label>8:00 am - 10:00 am : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="thu_8to10am" (ionChange)="changeStatus('time_8to10am_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>10:00 am - 12:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="thu_10to12am" (ionChange)="changeStatus('time_10to12am_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>12:00 pm - 2:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="thu_12to2pm" (ionChange)="changeStatus('time_12to2pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>2:00 pm - 4:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="thu_2to4pm" (ionChange)="changeStatus('time_2to4pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>4:00 pm - 6:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="thu_4to6pm" (ionChange)="changeStatus('time_4to6pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>6:00 pm - 8:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="thu_6to8pm" (ionChange)="changeStatus('time_6to8pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>8:00 pm - 10:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="thu_8to10pm" (ionChange)="changeStatus('time_8to10pm_arg',day)"></ion-toggle>
+          </ion-item>
+        </ion-list>
+      </div>  
+
+  <!-- <ion-button expand="full" color="success" (click)="goDay('/friday')">Friday</ion-button> -->
+  <ion-item button="true" (click)="goDay('/friday')">
+    <div style="width: 55%; text-align: center;" [(ngClass)]="friColor">Friday</div>  
+    <ion-datetime *ngIf="friDate" [disabled]="true" displayFormat="MMM DD YYYY" [(ngModel)]="date"></ion-datetime>           
+  </ion-item>       
+  <div *ngIf="day=='/friday'">
+        <ion-list>
+          <ion-item>
+            <ion-label><strong>Turn Off For Whole Day:</strong> </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="fri_all" (ionFocus)="presentAlertConfirm()"></ion-toggle>
+          </ion-item>
+        </ion-list>
+
+        <ion-list>
+          <ion-item>
+            <ion-label>8:00 am - 10:00 am : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="fri_8to10am" (ionChange)="changeStatus('time_8to10am_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>10:00 am - 12:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="fri_10to12am" (ionChange)="changeStatus('time_10to12am_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>12:00 pm - 2:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="fri_12to2pm" (ionChange)="changeStatus('time_12to2pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>2:00 pm - 4:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="fri_2to4pm" (ionChange)="changeStatus('time_2to4pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>4:00 pm - 6:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="fri_4to6pm" (ionChange)="changeStatus('time_4to6pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>6:00 pm - 8:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="fri_6to8pm" (ionChange)="changeStatus('time_6to8pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>8:00 pm - 10:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="fri_8to10pm" (ionChange)="changeStatus('time_8to10pm_arg',day)"></ion-toggle>
+          </ion-item>
+        </ion-list>
+      </div>  
+
+    <!-- <ion-button expand="full" color="success" (click)="goDay('/saturday')">Saturday</ion-button> -->
+    <ion-item button="true" (click)="goDay('/saturday')">
+      <div style="width: 55%; text-align: center;" [(ngClass)]="satColor">Saturday</div>  
+      <ion-datetime *ngIf="satDate" [disabled]="true" displayFormat="MMM DD YYYY" [(ngModel)]="date"></ion-datetime>             
+    </ion-item>     
+    <div *ngIf="day=='/saturday'">
+        <ion-list>
+          <ion-item>
+            <ion-label><strong>Turn Off For Whole Day:</strong> </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="sat_all" (ionFocus)="presentAlertConfirm()"></ion-toggle>
+          </ion-item>
+        </ion-list>
+
+        <ion-list>
+          <ion-item>
+            <ion-label>8:00 am - 10:00 am : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="sat_8to10am" (ionChange)="changeStatus('time_8to10am_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>10:00 am - 12:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="sat_10to12am" (ionChange)="changeStatus('time_10to12am_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>12:00 pm - 2:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="sat_12to2pm" (ionChange)="changeStatus('time_12to2pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>2:00 pm - 4:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="sat_2to4pm" (ionChange)="changeStatus('time_2to4pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>4:00 pm - 6:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="sat_4to6pm" (ionChange)="changeStatus('time_4to6pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>6:00 pm - 8:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="sat_6to8pm" (ionChange)="changeStatus('time_6to8pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>8:00 pm - 10:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="sat_8to10pm" (ionChange)="changeStatus('time_8to10pm_arg',day)"></ion-toggle>
+          </ion-item>
+        </ion-list>
+      </div>  
+
+    <!-- <ion-button expand="full" color="success" (click)="goDay('/sunday')">Sunday</ion-button> -->
+    <ion-item button="true" (click)="goDay('/sunday')">
+      <div style="width: 55%; text-align: center;" [(ngClass)]="sunColor">Sunday</div>  
+      <ion-datetime *ngIf="sunDate" [disabled]="true" displayFormat="MMM DD YYYY" [(ngModel)]="date"></ion-datetime>             
+    </ion-item>     
+    <div *ngIf="day=='/sunday'">
+        <ion-list>
+          <ion-item>
+            <ion-label><strong>Turn Off For Whole Day:</strong> </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="sun_all" (ionFocus)="presentAlertConfirm()"></ion-toggle>
+          </ion-item>
+        </ion-list>
+
+        <ion-list>
+          <ion-item>
+            <ion-label>8:00 am - 10:00 am : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="sun_8to10am" (ionChange)="changeStatus('time_8to10am_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>10:00 am - 12:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="sun_10to12am" (ionChange)="changeStatus('time_10to12am_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>12:00 pm - 2:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="sun_12to2pm" (ionChange)="changeStatus('time_12to2pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>2:00 pm - 4:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="sun_2to4pm" (ionChange)="changeStatus('time_2to4pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>4:00 pm - 6:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="sun_4to6pm" (ionChange)="changeStatus('time_4to6pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>6:00 pm - 8:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="sun_6to8pm" (ionChange)="changeStatus('time_6to8pm_arg',day)"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>8:00 pm - 10:00 pm : </ion-label>
+            <ion-toggle color="secondary" [(ngModel)]="sun_8to10pm" (ionChange)="changeStatus('time_8to10pm_arg',day)"></ion-toggle>
+          </ion-item>
+        </ion-list>
+      </div>  
+
+      <ion-grid>
+        <ion-row>
+        <div style="width:100%; text-align: center">Color Representation</div>
+        </ion-row>
+        <ion-row>
+          <ion-col size="3"></ion-col>
+          <ion-col size="3"><ion-icon name="square" class="green" size="small"></ion-icon></ion-col>
+          <ion-col size="5">This Week</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="3"></ion-col>
+          <ion-col size="3"><ion-icon name="square" class="blue" size="small"></ion-icon></ion-col>
+          <ion-col size="5">Next Week</ion-col>
+        </ion-row>
+      </ion-grid>
+</ion-content>

@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons>
+        <ion-button (click)="openMenu()" style="color:white;"><ion-icon name="menu"></ion-icon></ion-button>
+      <ion-button (click)="goBack()"><ion-icon name="arrow-back"></ion-icon></ion-button>
+      <img src="assets/img/bff.png" height="10%" width="10%">
+      <ion-title style="color:white;">League/Tournament</ion-title>
+    </ion-buttons>
+</ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+<ion-grid *ngFor="let data of league, let i=index">
+  <ion-row>
+    <ion-col button="true" (click)="goTourn(data.tname)" size="12" style="--background:transparent; background-color:rgb(179, 174, 174);">
+     <ion-label> <b>{{i+1}}.</b> &nbsp;&nbsp;<img src="{{data.url}}" height="80%" width="10%">.&nbsp;&nbsp;<b>{{data.tname}}</b></ion-label>
+     <br>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

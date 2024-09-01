@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+      <ion-buttons>
+          <ion-button (click)="openMenu()" style="color:white;"><ion-icon name="menu"></ion-icon></ion-button>
+        <ion-back-button style="color:white;"></ion-back-button>
+        <img src="assets/img/bff.png" height="10%" width="10%">
+        <ion-title style="color:white;">Upcoming Events</ion-title>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+<ion-grid *ngFor="let data of events">
+  <ion-row>
+    <ion-col size="12">
+      <img (click)="viewEventPhoto(data.url)" src="{{data.url}}">
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

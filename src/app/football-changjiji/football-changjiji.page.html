@@ -1,0 +1,466 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+      <ion-buttons>
+        <ion-button (click)="openMenu()" style="color:white;"><ion-icon name="menu"></ion-icon></ion-button>
+        <ion-back-button style="color:white;"></ion-back-button>
+        <img src="assets/img/bff.png" height="10%" width="10%">
+        <ion-title style="color:white;">Football Changjiji</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-tabs>
+        <ion-tab tab="status">
+          <!-- &nbsp;&nbsp;&nbsp;&nbsp;<ion-text center>View Ground Status for This Week.</ion-text> -->
+        <ion-content overflow-scroll="false">       
+          <ion-list>
+            <!-- <ion-item>
+              <ion-text>View Ground Status for This Week.</ion-text>
+            </ion-item>
+            <ion-item>
+            <ion-label>Today: </ion-label>
+            <ion-datetime [disabled]="true" displayFormat="MMM DD YYYY" [(ngModel)]="date"></ion-datetime><br>
+          </ion-item> -->
+      <ion-item center button="true" (click)="showChangFullMon()"><span [(ngClass)]="monColor">Monday</span>
+        <ion-datetime *ngIf="monDate" [disabled]="true" displayFormat="MMM DD YYYY" [(ngModel)]="date"></ion-datetime>
+      </ion-item>
+        <div *ngIf="changFootballMon_var">
+          <ion-list *ngFor='let data of changFootMonData'>
+            <ion-item>
+              <ion-label>Remarks: <span style="color: rgb(103, 110, 103);">{{data.monRemarks}}</span></ion-label> 
+            </ion-item>
+            <ion-item *ngIf="data.mon8to10am==true" >
+              <ion-label>8:00 am - 10:00 am : <span style="color: green;">Available</span></ion-label> 
+            </ion-item>
+            <ion-item *ngIf="data.mon8to10am==false" >
+              <ion-label>8:00 am - 10:00 am : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.mon10to12am==true" >
+              <ion-label>10:00 am - 12:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.mon10to12am==false" >
+              <ion-label>10:00 am - 12:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.mon12to2pm==true" >
+              <ion-label>12:00 pm - 2:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.mon12to2pm==false" >
+              <ion-label>12:00 pm - 2:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.mon2to4pm==true" >
+              <ion-label>2:00 pm - 4:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.mon2to4pm==false" >
+              <ion-label>2:00 pm - 4:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.mon4to6pm==true" >
+              <ion-label>4:00 pm - 6:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.mon4to6pm==false" >
+              <ion-label>4:00 pm - 6:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.mon6to8pm==true" >
+              <ion-label >6:00 pm - 8:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.mon6to8pm==false" >
+              <ion-label>6:00 pm - 8:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.mon8to10pm==true" >
+              <ion-label>8:00 pm - 10:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.mon8to10pm==false" >
+              <ion-label>8:00 pm - 10:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+      <ion-item center button="true" (click)="showChangFullTues()"><span [(ngClass)]="tueColor">Tuesday</span>
+        <ion-datetime *ngIf="tueDate" [disabled]="true" displayFormat="MMM DD YYYY" [(ngModel)]="date"></ion-datetime>      
+      </ion-item>
+        <div *ngIf="changFootballTues_var">
+          <ion-list *ngFor='let data of changFootTuesData'>
+            <ion-item>
+              <ion-label>Remarks: <span style="color: rgb(103, 110, 103);">{{data.tuesRemarks}}</span></ion-label> 
+            </ion-item>
+            <ion-item *ngIf="data.tues8to10am==true" >
+              <ion-label>8:00 am - 10:00 am : <span style="color: green;">Available</span></ion-label> 
+            </ion-item>
+            <ion-item *ngIf="data.tues8to10am==false" >
+              <ion-label>8:00 am - 10:00 am : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.tues10to12am==true" >
+              <ion-label>10:00 am - 12:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.tues10to12am==false" >
+              <ion-label>10:00 am - 12:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.tues12to2pm==true" >
+              <ion-label>12:00 pm - 2:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.tues12to2pm==false" >
+              <ion-label>12:00 pm - 2:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.tues2to4pm==true" >
+              <ion-label>2:00 pm - 4:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.tues2to4pm==false" >
+              <ion-label>2:00 pm - 4:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.tues4to6pm==true" >
+              <ion-label>4:00 pm - 6:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.tues4to6pm==false" >
+              <ion-label>4:00 pm - 6:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.tues6to8pm==true" >
+              <ion-label >6:00 pm - 8:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.mon6to8pm==false" >
+              <ion-label>6:00 pm - 8:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.tues8to10pm==true" >
+              <ion-label>8:00 pm - 10:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.tues8to10pm==false" >
+              <ion-label>8:00 pm - 10:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+      
+      <ion-item center button="true" (click)="showChangFullWed()"><span [(ngClass)]="wedColor">Wednesday</span>
+        <ion-datetime *ngIf="wedDate" [disabled]="true" displayFormat="MMM DD YYYY" [(ngModel)]="date"></ion-datetime>      
+      </ion-item>
+        <div *ngIf="changFootballWed_var">
+          <ion-list *ngFor='let data of changFootWedData'>
+            <ion-item>
+              <ion-label>Remarks: <span style="color: rgb(103, 110, 103);">{{data.wedRemarks}}</span></ion-label> 
+            </ion-item>
+            <ion-item *ngIf="data.wed8to10am==true" >
+              <ion-label>8:00 am - 10:00 am : <span style="color: green;">Available</span></ion-label> 
+            </ion-item>
+            <ion-item *ngIf="data.wed8to10am==false" >
+              <ion-label>8:00 am - 10:00 am : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.wed10to12am==true" >
+              <ion-label>10:00 am - 12:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.wed10to12am==false" >
+              <ion-label>10:00 am - 12:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.wed12to2pm==true" >
+              <ion-label>12:00 pm - 2:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.wed12to2pm==false" >
+              <ion-label>12:00 pm - 2:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.wed2to4pm==true" >
+              <ion-label>2:00 pm - 4:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.wed2to4pm==false" >
+              <ion-label>2:00 pm - 4:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.wed4to6pm==true" >
+              <ion-label>4:00 pm - 6:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.wed4to6pm==false" >
+              <ion-label>4:00 pm - 6:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.wed6to8pm==true" >
+              <ion-label >6:00 pm - 8:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.wed6to8pm==false" >
+              <ion-label>6:00 pm - 8:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.wed8to10pm==true" >
+              <ion-label>8:00 pm - 10:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.wed8to10pm==false" >
+              <ion-label>8:00 pm - 10:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+
+      <ion-item center button="true" (click)="showChangFullThu()"><span [(ngClass)]="thuColor">Thursday</span>
+        <ion-datetime *ngIf="thuDate" [disabled]="true" displayFormat="MMM DD YYYY" [(ngModel)]="date"></ion-datetime>      
+      </ion-item>
+        <div *ngIf="changFootballThu_var">
+          <ion-list *ngFor='let data of changFootThuData'>
+            <ion-item>
+              <ion-label>Remarks: <span style="color: rgb(103, 110, 103);">{{data.thuRemarks}}</span></ion-label> 
+            </ion-item>
+            <ion-item *ngIf="data.thu8to10am==true" >
+              <ion-label>8:00 am - 10:00 am : <span style="color: green;">Available</span></ion-label> 
+            </ion-item>
+            <ion-item *ngIf="data.thu8to10am==false" >
+              <ion-label>8:00 am - 10:00 am : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.thu10to12am==true" >
+              <ion-label>10:00 am - 12:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.thu10to12am==false" >
+              <ion-label>10:00 am - 12:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.thu12to2pm==true" >
+              <ion-label>12:00 pm - 2:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.thu12to2pm==false" >
+              <ion-label>12:00 pm - 2:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.thu2to4pm==true" >
+              <ion-label>2:00 pm - 4:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.thu2to4pm==false" >
+              <ion-label>2:00 pm - 4:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.thu4to6pm==true" >
+              <ion-label>4:00 pm - 6:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.thu4to6pm==false" >
+              <ion-label>4:00 pm - 6:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.thu6to8pm==true" >
+              <ion-label >6:00 pm - 8:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.thu6to8pm==false" >
+              <ion-label>6:00 pm - 8:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.thu8to10pm==true" >
+              <ion-label>8:00 pm - 10:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.thu8to10pm==false" >
+              <ion-label>8:00 pm - 10:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+
+      <ion-item center button="true" (click)="showChangFullFri()"><span [(ngClass)]="friColor">Friday</span>
+        <ion-datetime *ngIf="friDate" [disabled]="true" displayFormat="MMM DD YYYY" [(ngModel)]="date"></ion-datetime>      
+      </ion-item>
+        <div *ngIf="changFootballFri_var">
+          <ion-list *ngFor='let data of changFootFriData'>
+            <ion-item>
+              <ion-label>Remarks: <span style="color: rgb(103, 110, 103);">{{data.friRemarks}}</span></ion-label> 
+            </ion-item>
+            <ion-item *ngIf="data.fri8to10am==true" >
+              <ion-label>8:00 am - 10:00 am : <span style="color: green;">Available</span></ion-label> 
+            </ion-item>
+            <ion-item *ngIf="data.fri8to10am==false" >
+              <ion-label>8:00 am - 10:00 am : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.fri10to12am==true" >
+              <ion-label>10:00 am - 12:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.fri10to12am==false" >
+              <ion-label>10:00 am - 12:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.fri12to2pm==true" >
+              <ion-label>12:00 pm - 2:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.fri12to2pm==false" >
+              <ion-label>12:00 pm - 2:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.fri2to4pm==true" >
+              <ion-label>2:00 pm - 4:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.fri2to4pm==false" >
+              <ion-label>2:00 pm - 4:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.fri4to6pm==true" >
+              <ion-label>4:00 pm - 6:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.fri4to6pm==false" >
+              <ion-label>4:00 pm - 6:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.fri6to8pm==true" >
+              <ion-label >6:00 pm - 8:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.fri6to8pm==false" >
+              <ion-label>6:00 pm - 8:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.fri8to10pm==true" >
+              <ion-label>8:00 pm - 10:00 pm : <span style="color: green;">Available</span></ion-label>
+            </ion-item>
+            <ion-item *ngIf="data.fri8to10pm==false" >
+              <ion-label>8:00 pm - 10:00 pm : <span style="color: red;">Booked</span></ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+    
+    <ion-item center button="true" (click)="showChangFullSat()"><span [(ngClass)]="satColor">Saturday</span>
+      <ion-datetime *ngIf="satDate" [disabled]="true" displayFormat="MMM DD YYYY" [(ngModel)]="date"></ion-datetime>    
+    </ion-item>
+      <div *ngIf="changFootballSat_var">
+        <ion-list *ngFor='let data of changFootSatData'>
+          <ion-item>
+            <ion-label>Remarks: <span style="color: rgb(103, 110, 103);">{{data.satRemarks}}</span></ion-label> 
+          </ion-item>
+          <ion-item *ngIf="data.sat8to10am==true" >
+            <ion-label>8:00 am - 10:00 am : <span style="color: green;">Available</span></ion-label> 
+          </ion-item>
+          <ion-item *ngIf="data.sat8to10am==false" >
+            <ion-label>8:00 am - 10:00 am : <span style="color: red;">Booked</span></ion-label>
+          </ion-item>
+          <ion-item *ngIf="data.sat10to12am==true" >
+            <ion-label>10:00 am - 12:00 pm : <span style="color: green;">Available</span></ion-label>
+          </ion-item>
+          <ion-item *ngIf="data.sat10to12am==false" >
+            <ion-label>10:00 am - 12:00 pm : <span style="color: red;">Booked</span></ion-label>
+          </ion-item>
+          <ion-item *ngIf="data.sat12to2pm==true" >
+            <ion-label>12:00 pm - 2:00 pm : <span style="color: green;">Available</span></ion-label>
+          </ion-item>
+          <ion-item *ngIf="data.sat12to2pm==false" >
+            <ion-label>12:00 pm - 2:00 pm : <span style="color: red;">Booked</span></ion-label>
+          </ion-item>
+          <ion-item *ngIf="data.sat2to4pm==true" >
+            <ion-label>2:00 pm - 4:00 pm : <span style="color: green;">Available</span></ion-label>
+          </ion-item>
+          <ion-item *ngIf="data.sat2to4pm==false" >
+            <ion-label>2:00 pm - 4:00 pm : <span style="color: red;">Booked</span></ion-label>
+          </ion-item>
+          <ion-item *ngIf="data.sat4to6pm==true" >
+            <ion-label>4:00 pm - 6:00 pm : <span style="color: green;">Available</span></ion-label>
+          </ion-item>
+          <ion-item *ngIf="data.sat4to6pm==false" >
+            <ion-label>4:00 pm - 6:00 pm : <span style="color: red;">Booked</span></ion-label>
+          </ion-item>
+          <ion-item *ngIf="data.sat6to8pm==true" >
+            <ion-label >6:00 pm - 8:00 pm : <span style="color: green;">Available</span></ion-label>
+          </ion-item>
+          <ion-item *ngIf="data.sat6to8pm==false" >
+            <ion-label>6:00 pm - 8:00 pm : <span style="color: red;">Booked</span></ion-label>
+          </ion-item>
+          <ion-item *ngIf="data.sat8to10pm==true" >
+            <ion-label>8:00 pm - 10:00 pm : <span style="color: green;">Available</span></ion-label>
+          </ion-item>
+          <ion-item *ngIf="data.sat8to10pm==false" >
+            <ion-label>8:00 pm - 10:00 pm : <span style="color: red;">Booked</span></ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+
+    <ion-item center button="true" (click)="showChangFullSun()"><span [(ngClass)]="sunColor">Sunday</span>
+      <ion-datetime *ngIf="sunDate" [disabled]="true" displayFormat="MMM DD YYYY" [(ngModel)]="date"></ion-datetime>    
+    </ion-item>
+      <div *ngIf="changFootballSun_var">
+        <ion-list *ngFor='let data of changFootSunData'>
+          <ion-item>
+            <ion-label>Remarks: <span style="color: rgb(103, 110, 103);">{{data.sunRemarks}}</span></ion-label> 
+          </ion-item>
+          <ion-item *ngIf="data.sun8to10am==true" >
+            <ion-label>8:00 am - 10:00 am : <span style="color: green;">Available</span></ion-label> 
+          </ion-item>
+          <ion-item *ngIf="data.sun8to10am==false" >
+            <ion-label>8:00 am - 10:00 am : <span style="color: red;">Booked</span></ion-label>
+          </ion-item>
+          <ion-item *ngIf="data.sun10to12am==true" >
+            <ion-label>10:00 am - 12:00 pm : <span style="color: green;">Available</span></ion-label>
+          </ion-item>
+          <ion-item *ngIf="data.sun10to12am==false" >
+            <ion-label>10:00 am - 12:00 pm : <span style="color: red;">Booked</span></ion-label>
+          </ion-item>
+          <ion-item *ngIf="data.sun12to2pm==true" >
+            <ion-label>12:00 pm - 2:00 pm : <span style="color: green;">Available</span></ion-label>
+          </ion-item>
+          <ion-item *ngIf="data.sun12to2pm==false" >
+            <ion-label>12:00 pm - 2:00 pm : <span style="color: red;">Booked</span></ion-label>
+          </ion-item>
+          <ion-item *ngIf="data.sun2to4pm==true" >
+            <ion-label>2:00 pm - 4:00 pm : <span style="color: green;">Available</span></ion-label>
+          </ion-item>
+          <ion-item *ngIf="data.sun2to4pm==false" >
+            <ion-label>2:00 pm - 4:00 pm : <span style="color: red;">Booked</span></ion-label>
+          </ion-item>
+          <ion-item *ngIf="data.sun4to6pm==true" >
+            <ion-label>4:00 pm - 6:00 pm : <span style="color: green;">Available</span></ion-label>
+          </ion-item>
+          <ion-item *ngIf="data.sun4to6pm==false" >
+            <ion-label>4:00 pm - 6:00 pm : <span style="color: red;">Booked</span></ion-label>
+          </ion-item>
+          <ion-item *ngIf="data.sun6to8pm==true" >
+            <ion-label >6:00 pm - 8:00 pm : <span style="color: green;">Available</span></ion-label>
+          </ion-item>
+          <ion-item *ngIf="data.sun6to8pm==false" >
+            <ion-label>6:00 pm - 8:00 pm : <span style="color: red;">Booked</span></ion-label>
+          </ion-item>
+          <ion-item *ngIf="data.sun8to10pm==true" >
+            <ion-label>8:00 pm - 10:00 pm : <span style="color: green;">Available</span></ion-label>
+          </ion-item>
+          <ion-item *ngIf="data.sun8to10pm==false" >
+            <ion-label>8:00 pm - 10:00 pm : <span style="color: red;">Booked</span></ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+      <ion-item>
+          <ion-label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ion-icon (click)="callChang()" name="call" color="tertiary" size="large"></ion-icon>&nbsp;&nbsp;{{contact_no}}</ion-label>
+        </ion-item>
+    </ion-list>
+    <ion-grid>
+        <ion-row>
+        <div style="width:100%; text-align: center">Color Representation</div>
+        </ion-row>
+        <ion-row>
+          <ion-col size="3"></ion-col>
+          <ion-col size="3"><ion-icon name="square" class="green" size="small"></ion-icon></ion-col>
+          <ion-col size="5">This Week</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="3"></ion-col>
+          <ion-col size="3"><ion-icon name="square" class="blue" size="small"></ion-icon></ion-col>
+          <ion-col size="5">Next Week</ion-col>
+        </ion-row>
+      </ion-grid>
+  </ion-content>
+  </ion-tab>
+  <ion-tab tab="price">   
+    <ion-content overflow-scroll="false">
+          <ion-grid class="textstyle">
+            <ion-row>
+              <ion-col size="1"></ion-col>
+              <ion-col size="6" text-wrap>
+                Weekends (day):                  
+              </ion-col>
+              <ion-col size="4" text-wrap>
+                 Nu. {{price_weekend_day}}/-                
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="1"></ion-col>
+              <ion-col size="6" text-wrap>
+                 Weekends (night):                 
+              </ion-col>
+              <ion-col size="4" text-wrap>
+                Nu. {{price_weekend_night}}/-                
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="1"></ion-col>
+              <ion-col size="6" text-wrap>
+                 Weekdays (day):                
+              </ion-col>
+              <ion-col size="4" text-wrap>
+               Nu. {{price_weekdays_day}}/-                
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="1"></ion-col>
+              <ion-col size="6" text-wrap>
+                Weekdays (night):                 
+              </ion-col>
+              <ion-col size="4" text-wrap>
+              Nu. {{price_weekdays_night}}/-                
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+    </ion-content>
+  </ion-tab>
+  <ion-tab-bar slot="top">
+    <ion-tab-button tab="status">
+      <ion-label style="font-size: 12pt;" color="dark">Status</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="price">
+      <ion-label style="font-size: 12pt;" color="dark">Pricing</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+</ion-content>

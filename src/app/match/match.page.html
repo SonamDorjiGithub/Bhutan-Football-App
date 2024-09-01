@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+      <ion-buttons>
+          <ion-button (click)="openMenu()" style="color:white;"><ion-icon name="menu"></ion-icon></ion-button>
+        <ion-back-button style="color:white;"></ion-back-button>
+        <ion-title style="color:white;">Match</ion-title>
+        <ion-button slot="end" (click)="myCujoo()"><img src="assets/img/watch_on_mycujoo.png" height="95%" width="65%"></ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+      <ion-list *ngFor="let data of match">
+      <!-- <ion-card>
+      <ion-card-content> -->
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" style="background-color: #eeeeee">
+          <div style="width: 100%; text-align: center;font-size: 10pt;color: rgb(146, 146, 140);font-family: 'Times New Roman', Times, serif;">{{data.matchdate}}</div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+        <ion-col size="12">
+          <div style="width: 100%; text-align: center;font-size: 10pt;color: rgb(49, 49, 47);font-family: 'Times New Roman', Times, serif;"><span style="background-color: #eeeeee">{{data.matchtime}}</span></div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3" class="font-style">
+            <span style="color:rgb(48, 46, 46);font-family: 'Times New Roman', Times, serif; font-size: 10pt;" (click)="viewPlayerTeam(data.matchteam1,data.playerteam1,data.matchtitle)">{{data.matchteam1}}</span>
+        </ion-col>
+        <ion-col size="2" style="text-align: center;">
+            <img src="{{data.team1logo}}" style="border-radius: 50%" height=20px; width=20px;>
+        </ion-col>
+        <ion-col size="2" style="text-align: center"> 
+            <ion-badge class="font-style2">{{data.matchsore}}</ion-badge>
+        </ion-col>
+        <ion-col size="2" style="text-align: center;">
+            <img src="{{data.team2logo}}" style="border-radius: 50%" height=20px; width=20px;>
+        </ion-col>
+        <ion-col size="3"  class="font-style">
+            <span style="color:rgb(48, 46, 46);font-family: 'Times New Roman', Times, serif;font-size: 10pt;" (click)="viewPlayerTeam2(data.matchteam2,data.playerteam2,data.matchtitle)">{{data.matchteam2}}</span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col *ngIf="data.matchstat=='FirstHalf'||data.matchstat=='HalfTime'||data.matchstat=='SecondHalf'||data.matchstat=='ExtraTime'" size="12" style="text-align: center;">
+          <ion-badge style="background-color: green">{{data.matchstat}}</ion-badge>
+        </ion-col>
+        <!-- <ion-col *ngIf="data.matchstat=='halftime'||data.matchstat=='HalfTime'||data.matchstat=='Halftime'" size="12" style="text-align: center;">
+          <ion-badge style="background-color: green">Half Time</ion-badge>
+        </ion-col> -->
+        <ion-col *ngIf="data.matchstat=='End'||data.matchstat=='end'||data.matchstat=='END'" size="12" style="text-align: center;">
+          <ion-badge style="background-color: red">End</ion-badge>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+            <div style="width: 100%; text-align: center;font-size: 10pt;color: rgb(146, 146, 140);font-family: 'Times New Roman', Times, serif;">{{data.matchvenue}}<br>{{data.leaguename}}</div>
+        </ion-col>
+      </ion-row>
+      
+      <!-- <ion-row *ngIf="data.matchSummary!='-'">
+        <ion-col size="12" style="text-align:center;">
+          <ion-button color="warning" size="small"><ion-icon name="information-circle"></ion-icon></ion-button>
+        </ion-col>
+      </ion-row> -->
+      <ion-row *ngIf="data.matchSummary!='-'">
+        <ion-col>
+            <ion-card>
+              <ion-card-content>
+                <span style="font-size: 9pt;color: rgb(161, 161, 159);font-family: 'Times New Roman', Times, serif;">{{data.matchSummary}}</span>
+              </ion-card-content>
+            </ion-card>  
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col *ngIf="data.sponsorlogo1!='null' || data.sponsorlogo2!='null' || data.sponsorlogo3!='null'" style="width: 100%; text-align: center;font-size: 12pt;color: rgb(65, 125, 192);font-family: 'Times New Roman', Times, serif;">
+          <i><b>Sponsored By:</b></i>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col *ngIf="data.sponsorlogo1!='null'" size="4" button="true" (click)="openSponsor(data.sponsor1url)" style="text-align: center;">
+          <img src="{{data.sponsorlogo1}}" height="70%" width="50%">
+        </ion-col>
+        <ion-col *ngIf="data.sponsorlogo2!='null'" size="4" button="true" (click)="openSponsor(data.sponsor2url)" style="text-align: center;"> 
+          <img src="{{data.sponsorlogo2}}" height="70%" width="50%">          
+        </ion-col>
+        <ion-col *ngIf="data.sponsorlogo3!='null'" size="4" button="true" (click)="openSponsor(data.sponsor3url)" style="text-align: center;"> 
+          <img src="{{data.sponsorlogo3}}" height="70%" width="50%">          
+        </ion-col>
+      </ion-row>
+      </ion-grid>
+    <!-- </ion-card-content>
+    </ion-card> -->
+    </ion-list>
+</ion-content>

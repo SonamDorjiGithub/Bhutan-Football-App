@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-photoviewer" version="1.0.2" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>cordova-plugin-photoviewer</name>
+    <js-module name="CordovaPluginPhotoviewer" src="www/CordovaPluginPhotoviewer.js">
+        <clobbers target="cordova.plugins.Photoviewer" />
+    </js-module>
+
+    <platform name="android">
+
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="CordovaPluginPhotoviewer">
+                <param name="android-package" value="org.apache.cordova.photoviewer.CordovaPluginPhotoviewer"/>
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml" />
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity android:name="org.apache.cordova.photoviewer.PhotoActivity" android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" />
+        </config-file>
+
+		<config-file parent="/manifest" target="AndroidManifest.xml">
+			<uses-permission android:name="android.permission.INTERNET" />
+			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+			<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+		</config-file>
+
+		<source-file src="src/android/CordovaPluginPhotoviewer.java" target-dir="src/org/apache/cordova/photoviewer" />
+		<source-file src="src/android/PhotoActivity.java" target-dir="src/org/apache/cordova/photoviewer" />
+
+		<source-file src="src/android/layout/photo.xml" target-dir="res/layout" />
+
+		<framework src="src/android/photoviewer.gradle" custom="true" type="gradleReference" />
+    </platform>
+
+    <platform name="ios">
+		<config-file parent="/*" target="config.xml">
+			<feature name="CordovaPluginPhotoviewer">
+				<param name="ios-package" value="CordovaPluginPhotoviewer" />
+			</feature>
+		</config-file>
+		<source-file src="src/ios/CordovaPluginPhotoviewer.m" />
+	</platform>
+</plugin>

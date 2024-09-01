@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-toolbar color="secondary">
+      <ion-buttons>
+          <ion-button (click)="openMenu()" style="color:white;"><ion-icon name="menu"></ion-icon></ion-button>
+        <ion-button (click)="goBack()"><ion-icon name="arrow-back"></ion-icon></ion-button>
+        <img src="assets/img/bff.png" height="10%" width="10%">        
+        <ion-title style="color:white;">Manage Tournament</ion-title>
+      </ion-buttons>
+  </ion-toolbar>
+  </ion-header>
+
+<ion-content padding>
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-button text-wrap expand="full" style="--background: transparent; background-color:rgba(0, 0, 0, 0.2); width: 100%; text-align: center;color:black; border:2px solid yellow;" (click)="goNewTourn()">Add New League/Tounament</ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-button text-wrap expand="full" style="--background: transparent; background-color:rgba(0, 0, 0, 0.2); width: 100%; text-align: center;color:black; border:2px solid yellow;" (click)="goEditTourn()">Edit League/Tounament</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-app>
+    <ion-split-pane>
+        <ion-menu type="overlay" menuId="myMenu" >
+            <ion-header>
+                <ion-toolbar color="secondary">
+                  <ion-title>
+                    Menu
+                  </ion-title>
+                </ion-toolbar>
+              </ion-header>
+              
+              <ion-content  style="--background: transparent;">
+                <ion-list button="true">
+                    <ion-item (click)="goHome()">
+                        <ion-icon name="home"></ion-icon> &nbsp;&nbsp; Home
+                      </ion-item>
+                  <!-- <ion-item (click)="goAboutUs()">
+                    About us
+                  </ion-item> -->
+                  <ion-item (click)="goContact()">
+                      <ion-icon name="call"></ion-icon> &nbsp;&nbsp; Contact
+                  </ion-item>
+                  <!-- <ion-item (click)="goHelp()">
+                      <ion-icon name="help"></ion-icon> &nbsp;&nbsp; Help
+                    </ion-item> -->
+                  <ion-item (click)="goRateus()">
+                      <ion-icon name="star-half"></ion-icon> &nbsp;&nbsp; Rate us
+                    </ion-item>
+                  <!-- <ion-item (click)="alertAdminLogin()">
+                      Admin Login
+                    </ion-item> -->
+                </ion-list>
+              </ion-content>
+        </ion-menu>
+        <ion-router-outlet main></ion-router-outlet>
+      </ion-split-pane>
+</ion-app>

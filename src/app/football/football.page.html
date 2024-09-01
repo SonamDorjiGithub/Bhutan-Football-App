@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+      <ion-buttons>
+          <ion-button (click)="openMenu()" style="color:white;"><ion-icon name="menu"></ion-icon></ion-button>
+        <ion-back-button style="color:white;"></ion-back-button>
+        <img src="assets/img/bff.png" height="10%" width="10%">
+        <ion-title style="color:white;">View Ground Status</ion-title>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <br><br><br><br> 
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <!-- <ion-button  style="--background: transparent; background-color:rgba(0, 0, 0, 0.2); width: 100%; text-align: center;color:black; border:2px solid yellow;" (click)="showChangFootball()" expand="full">Changlimithang Football</ion-button> -->
+        <ion-button color="medium" (click)="showChangFootball()" expand="full">Changlimithang Football</ion-button>        
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <!-- <ion-button  style="--background: transparent; background-color:rgba(0, 0, 0, 0.2); width: 100%; text-align: center;color:black; border:2px solid yellow;" (click)="showChangFutsal()" expand="full">Changlimithang Futsal</ion-button> -->
+        <ion-button color="medium" (click)="showChangFutsal()" expand="full">Changlimithang Futsal</ion-button>      
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+          <!-- <ion-button  style="--background: transparent; background-color:rgba(0, 0, 0, 0.2); width: 100%; text-align: center;color:black; border:2px solid yellow;" (click)="showChangjijiFootball()" expand="full">Changjiji Football</ion-button>        -->
+        <ion-button color="medium" (click)="showChangjijiFootball()" expand="full">Changjiji Football</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <!-- <ion-button  style="--background: transparent; background-color:rgba(0, 0, 0, 0.2); width: 100%; text-align: center;color:black; border:2px solid yellow;" (click)="showChangjijiFutsal()" expand="full">Changjiji Futsal</ion-button>         -->
+        <ion-button color="medium" (click)="showChangjijiFutsal()" expand="full">Changjiji Futsal</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

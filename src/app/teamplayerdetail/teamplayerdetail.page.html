@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+      <ion-buttons>
+          <ion-button (click)="openMenu()" style="color:white;"><ion-icon name="menu"></ion-icon></ion-button>
+        <ion-back-button style="color:white;"></ion-back-button>
+        <ion-title style="color:white;">Football</ion-title>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+    <ion-card >
+      <ion-card-content>
+        <ion-item class="teamname-style">
+            {{teamName1}}&nbsp;&nbsp;&nbsp;<img src="{{teamLogo}}" style="border-radius: 50%; height:80%; width:20%;">
+        </ion-item>
+        <ion-item class="squad-style">
+          Squad Details
+        </ion-item>
+        <ion-item *ngFor="let data of splitData, let i=index" class="teamplayer-style">
+            {{i+1}}.&nbsp;&nbsp;{{splitData[i]}}
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+</ion-content>
