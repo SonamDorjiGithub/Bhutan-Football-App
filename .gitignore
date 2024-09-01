@@ -27,6 +27,7 @@ www/
 tmp/
 temp/
 resources/
+plugins/
 
 $RECYCLE.BIN/
 
